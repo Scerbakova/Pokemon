@@ -1,38 +1,36 @@
-.App {
-  text-align: center;
-}
+@import "./src/additional/reset.scss";
+@import "./additional/flexboxgrid.scss";
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap");
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  overflow-y: auto;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  width: 100%;
 }
-
-.App-header {
-  background-color: #282c34;
+.app {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100%;
+  padding: 10px;
+  text-align: center;
+  font-family: "Square Peg", cursive;
+  font-size: 24px;
+  font-weight: 400;
+  background-color: rgba(34, 7, 7, 0.253);
 }
-
-.App-link {
-  color: #61dafb;
+.wrapper {
+  gap: 40px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pokemon__button--container {
+  min-width: 150px;
+}
+.pokemon__button, .btn__moves {
+  background-color: rgba(44, 49, 45, 0.473);
+  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: 2px 2px 10px navy;
+  min-width: 150px;
+}
+.info {
+  margin-bottom: 20px;
 }

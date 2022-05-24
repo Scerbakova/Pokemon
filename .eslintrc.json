@@ -37,6 +37,7 @@
         "no-unused-vars": "off",
         "react/jsx-uses-react": "off",
         "react/react-in-jsx-scope": "off",
+        "no-param-reassign": "off",
         "jsx-a11y/media-has-caption": "off",
         "max-len": [1, {
             "code": 120
