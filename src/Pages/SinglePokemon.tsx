@@ -5,9 +5,7 @@ import { useGetPokemonByIdQuery } from '../store/reducers/pokemon';
 const SinglePokemon = () => {
   // eslint-disable-next-line no-undef
   const [moves, setMoves] = useState<JSX.Element[]>();
-  // const { name } = useParams();
   const { id } = useParams();
-  // const { data, isLoading, isSuccess } = useGetPokemonByNameQuery(String(name));
   const { data, isLoading, isSuccess } = useGetPokemonByIdQuery(Number(id));
   const navigate = useNavigate();
   const prev = Number(id) - 1;

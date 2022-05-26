@@ -39,11 +39,12 @@ const Home = () => {
       })}
       <div>
         <button
+          className="btn__moves"
           onClick={() => {
             setOffset(offset + 20);
           }}
         >
-          NEXT PAGE
+          LOAD MORE POKEMONS
         </button>
       </div>
     </div>
