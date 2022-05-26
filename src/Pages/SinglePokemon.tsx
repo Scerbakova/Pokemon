@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
-import { useGetAllPokemonsQuery, useGetPokemonByIdQuery, useGetPokemonByNameQuery } from '../store/reducers/pokemon';
+import { useGetPokemonByIdQuery } from '../store/reducers/pokemon';
 
 const SinglePokemon = () => {
   // eslint-disable-next-line no-undef

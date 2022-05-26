@@ -41,6 +41,15 @@ const Home = () => {
           </div>
         );
       })}
+      <div>
+        {/* <button
+          onClick={() => {
+            navigate(`${data && data.next.replace(data.next.slice(0, 34), '/?')}`);
+          }}
+        >
+          NEXT PAGE
+        </button> */}
+      </div>
     </div>
   );
 };
