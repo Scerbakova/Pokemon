@@ -12,7 +12,8 @@ const App = () => (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:name" element={<SinglePokemon />} />
+        {/* <Route path="/:name" element={<SinglePokemon />} /> */}
+        <Route path="/pokemon/:id" element={<SinglePokemon />} />
       </Routes>
     </Router>
   </div>

@@ -1,18 +1,31 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
-import { useGetAllPokemonsQuery, useGetPokemonByNameQuery } from '../store/reducers/pokemon';
+import { useGetAllPokemonsQuery, useGetPokemonByIdQuery, useGetPokemonByNameQuery } from '../store/reducers/pokemon';
 
 const SinglePokemon = () => {
   // eslint-disable-next-line no-undef
   const [moves, setMoves] = useState<JSX.Element[]>();
-  const { name } = useParams();
-  const { data, isLoading, isSuccess } = useGetPokemonByNameQuery(name!);
+  // const { name } = useParams();
+  const { id } = useParams();
+  // const { data, isLoading, isSuccess } = useGetPokemonByNameQuery(String(name));
+  const { data, isLoading, isSuccess } = useGetPokemonByIdQuery(Number(id));
   const navigate = useNavigate();
+  const prev = Number(id) - 1;
+  const next = Number(id) + 1;
 
   return (
     <div className="pokemon row container-fluid center-xs">
       {isLoading && <span>Loading...</span>}
       <div><button className="pokemon__button" onClick={() => navigate('/')}>BACK</button></div>
+      <div>
+        <button
+          className="pokemon__button"
+          onClick={() => navigate(`/pokemon/${prev}`)}
+        >
+          Previous Pokemon
+        </button>
+
+      </div>
       <div className="col-xs-4">
         Single Pokemon:
         <div>
@@ -23,7 +36,7 @@ const SinglePokemon = () => {
         <div className="info">
           Name:
           {' '}
-          {name}
+          {data && data.name}
         </div>
         <div className="info">
           Height:
@@ -50,6 +63,7 @@ const SinglePokemon = () => {
           {moves}
         </div>
       </div>
+      <div><button className="pokemon__button" onClick={() => navigate(`/pokemon/${next}`)}>Next Pokemon</button></div>
     </div>
   );
 };

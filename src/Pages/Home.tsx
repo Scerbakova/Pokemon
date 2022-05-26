@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useGetAllPokemonsQuery } from '../store/reducers/pokemon';
 
@@ -6,7 +7,12 @@ export const
 
 const Home = () => {
   const { data, isLoading, isSuccess } = useGetAllPokemonsQuery();
+  // const [next, setNext] = useState(useGetAllPokemonsQuery());
   const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   setNext(next);
+  // }, []);
 
   return (
     <div className="wrapper row container-fluid">
@@ -21,7 +27,7 @@ const Home = () => {
                 className="pokemon__button"
                 key={Math.random()}
                 onClick={() => {
-                  navigate(`/${name}`);
+                  navigate(`/pokemon/${id}`);
                 }}
               >
                 {name}

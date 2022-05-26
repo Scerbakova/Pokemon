@@ -42,18 +42,21 @@ export const pokemonApi = createApi({
     getPokemonByName: builder.query<SinglePokemonResponse, string>({
       query: (name) => `pokemon/${name}`,
     }),
-    // getPokemonById: builder.query<SinglePokemonResponse, number>({
-    //   query: (id) => `pokemon/${id}`,
-    // }),
+    getPokemonById: builder.query<SinglePokemonResponse, number>({
+      query: (id) => `pokemon/${id}`,
+    }),
     getAllPokemons: builder.query<AllPokemonsResponse, void>({
       query: () => 'pokemon',
     }),
+    // getMorePokemons: builder.query<AllPokemonsResponse, void>({
+    //   query: () => 'pokemon/?offset=10&limit=100',
+    // }),
     // getMorePokemons: builder.query<AllPokemonsResponse, string>({
-    //   query: (next) => `pokemon/${next}`,
+    //   query: (next) => `${next.replace(next.slice(0, 34), '/pokemon/')}`,
     // }),
   }),
 });
 
-export const { useGetPokemonByNameQuery, useGetAllPokemonsQuery } = pokemonApi;
+export const { useGetPokemonByNameQuery, useGetAllPokemonsQuery, useGetPokemonByIdQuery } = pokemonApi;
 
 export default pokemonApi;
