@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useGetAllPokemonsQuery } from '../store/reducers/pokemon';
 
@@ -6,13 +6,9 @@ export const
   pokemonImageBaseUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/';
 
 const Home = () => {
-  const { data, isLoading, isSuccess } = useGetAllPokemonsQuery();
-  // const [next, setNext] = useState(useGetAllPokemonsQuery());
+  const [offset, setOffset] = useState(20);
+  const { data, isLoading, isSuccess } = useGetAllPokemonsQuery(offset);
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   setNext(next);
-  // }, []);
 
   return (
     <div className="wrapper row container-fluid">
@@ -42,13 +38,13 @@ const Home = () => {
         );
       })}
       <div>
-        {/* <button
+        <button
           onClick={() => {
-            navigate(`${data && data.next.replace(data.next.slice(0, 34), '/?')}`);
+            setOffset(offset + 20);
           }}
         >
           NEXT PAGE
-        </button> */}
+        </button>
       </div>
     </div>
   );

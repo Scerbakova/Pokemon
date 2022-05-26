@@ -1,10 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export type SinglePokemonResponse = {
-  // 'moves': {
-  //   'name': string
-  //   'url': string
-  // }[],
   'moves': [{
     move: {
       name: string,
@@ -39,24 +35,12 @@ export const pokemonApi = createApi({
   reducerPath: 'pokemonApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://pokeapi.co/api/v2/' }),
   endpoints: (builder) => ({
-    // getPokemonByName: builder.query<SinglePokemonResponse, string>({
-    //   query: (name) => `pokemon/${name}`,
-    // }),
     getPokemonById: builder.query<SinglePokemonResponse, number>({
       query: (id) => `pokemon/${id}`,
     }),
-    // getAllPokemons: builder.query<AllPokemonsResponse, void>({
-    //   query: () => 'pokemon',
-    // }),
-    getAllPokemons: builder.query<AllPokemonsResponse, void>({
-      query: () => 'pokemon',
+    getAllPokemons: builder.query<AllPokemonsResponse, number>({
+      query: (offset) => `pokemon/?offset=10&limit=${offset}`,
     }),
-    // getMorePokemons: builder.query<AllPokemonsResponse, void>({
-    //   query: () => 'pokemon/?offset=10&limit=100',
-    // }),
-    // getMorePokemons: builder.query<AllPokemonsResponse, string>({
-    //   query: (next) => `${next.replace(next.slice(0, 34), '/pokemon/')}`,
-    // }),
   }),
 });
 
