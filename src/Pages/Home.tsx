@@ -6,8 +6,8 @@ export const
   pokemonImageBaseUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/';
 
 const Home = () => {
-  const [offset, setOffset] = useState(20);
-  const { data, isLoading, isSuccess } = useGetAllPokemonsQuery(offset);
+  const [amount, setAmount] = useState(20);
+  const { data, isLoading, isSuccess } = useGetAllPokemonsQuery(amount);
   const navigate = useNavigate();
 
   return (
@@ -41,7 +41,7 @@ const Home = () => {
         <button
           className="btn__moves"
           onClick={() => {
-            setOffset(offset + 20);
+            setAmount(amount + 20);
           }}
         >
           LOAD MORE POKEMONS

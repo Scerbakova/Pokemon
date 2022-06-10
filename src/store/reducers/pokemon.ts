@@ -39,7 +39,7 @@ export const pokemonApi = createApi({
       query: (id) => `pokemon/${id}`,
     }),
     getAllPokemons: builder.query<AllPokemonsResponse, number>({
-      query: (offset) => `pokemon/?offset=10&limit=${offset}`,
+      query: (amount) => `pokemon/?offset=10&limit=${amount}`,
     }),
   }),
 });
